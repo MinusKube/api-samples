@@ -6,8 +6,8 @@ import (
 	"log"
 	"net/http"
 
-	"code.google.com/p/google-api-go-client/googleapi/transport"
-	"code.google.com/p/google-api-go-client/youtube/v3"
+	"google.golang.org/api/googleapi/transport"
+	"google.golang.org/api/youtube/v3"
 )
 
 var (
@@ -34,9 +34,7 @@ func main() {
 		Q(*query).
 		MaxResults(*maxResults)
 	response, err := call.Do()
-	if err != nil {
-		log.Fatalf("Error making search API call: %v", err)
-	}
+	handleError(err, "")
 
 	// Group video, channel, and playlist results in separate lists.
 	videos := make(map[string]string)

@@ -1,29 +1,6 @@
-// TITLE: Search by topic
-// DESCRIPTION: use_function_comment
-// API_METHOD: youtube.search.list
 /**
- * This function searches for videos that are associated with a particular Freebase
- * topic, logging their video IDs and titles to the Apps Script log. This example uses
- * the topic ID for Google Apps Script.
- *
- * Note that this sample limits the results to 25. To return more results, pass
- * additional parameters as documented here:
- *   https://developers.google.com/youtube/v3/docs/search/list
- */
-function searchByTopic() {
-  var mid = '/m/0gjf126';
-  var results = YouTube.Search.list('id,snippet', {topicId: mid, maxResults: 25});
-
-  for(var i in results.items) {
-    var item = results.items[i];
-    Logger.log('[%s] Title: %s', item.id.videoId, item.snippet.title);
-  }
-}
-
-// TITLE: Search by keyword
-// DESCRIPTION: use_function_comment
-// API_METHOD: youtube.search.list
-/**
+ * Title: Search by keyword
+ * Method: youtube.search.list
  * This function searches for videos related to the keyword 'dogs'. The video IDs and titles
  * of the search results are logged to Apps Script's log.
  *
@@ -41,10 +18,9 @@ function searchByKeyword() {
 }
 
 
-// TITLE: Retrieve my uploads
-// DESCRIPTION: use_function_comment
-// API_METHOD: youtube.channels.list
 /**
+ * Title: Retrieve my uploads
+ * Method: youtube.channels.list
  * This function retrieves the current script user's uploaded videos. To execute,
  * it requires the OAuth read/write scope for YouTube as well as user authorization.
  * In Apps Script's runtime environment, the first time a user runs a script, Apps
@@ -93,10 +69,9 @@ function retrieveMyUploads() {
   }
 }
 
-// TITLE: Update video
-// DESCRIPTION: use_function_comment
-// API_METHOD: youtube.videos.update
 /**
+ * Title: Update video
+ * Method: youtube.videos.update
  * This sample finds the active user's uploads, then updates the most recent
  * upload's description by appending a string.
  */
@@ -133,10 +108,9 @@ function updateVideo() {
   }
 }
 
-// TITLE: Subscribe to channel
-// DESCRIPTION: use_function_comment
-// API_METHOD: youtube.subscriptions.insert
 /**
+ * Title: Subscribe to channel
+ * Method: youtube.subscriptions.insert
  * This sample subscribes the active user to the GoogleDevelopers
  * YouTube channel, specified by the channelId.
  */
@@ -165,10 +139,9 @@ function addSubscription() {
   }
 }
 
-// TITLE: Post channel bulletin
-// DESCRIPTION: use_function_comment
-// API_METHOD: youtube.activities.insert
 /**
+ * Title: Post channel bulletin
+ * Method: youtube.activities.insert
  * This function creates and posts a new channel bulletin, adding a video and message. Note that this
  * will also accept a playlist ID. After completing the API call, logs the output to the log.
  */
@@ -194,10 +167,9 @@ function postChannelBulletin() {
   Logger.log(response);
 }
 
-// TITLE: Export YouTube Analytics data to Google Sheets
-// DESCRIPTION: use_function_comment
-// API_METHOD: youtubeAnalytics.reports.query
 /**
+ * Title: Export YouTube Analytics data to Google Sheets
+ * Method: youtubeAnalytics.reports.query
  * This function uses the YouTube Analytics API to fetch data about the
  * authenticated user's channel, creating a new Google Sheet in the user's Drive
  * with the data.
